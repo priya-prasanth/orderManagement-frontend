@@ -48,9 +48,9 @@
     }
 }
 @media (max-width:768px){
-    .pc-header{
+     .pc-header{
         display: none !important;
-    }
+    } 
     .mobile-header{
         display: block;
     }

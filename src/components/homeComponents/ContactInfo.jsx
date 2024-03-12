@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 const ContactInfo = () => {
     return (
       <div className="contactInfo container">
@@ -32,7 +33,7 @@ const ContactInfo = () => {
             </div>
           </div>
         </div>
-      </div>
+       </div>
     );
 };
 
