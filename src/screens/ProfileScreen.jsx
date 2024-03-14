@@ -5,6 +5,7 @@ import { getUserDetails } from "../../Redux/Actions/userActions.js";
 import Orders from "../components/profileComponents/Orders.jsx";
 import ProfileTabs from "../components/profileComponents/ProfileTabs.jsx";
 import { listMyOrders } from "../../Redux/Actions/OrderActions.js";
+import { Link } from "react-router-dom";
 
 const ProfileScreen = () => {
   window.scrollTo(0, 0);
@@ -74,8 +75,12 @@ const ProfileScreen = () => {
                     aria-controls="v-pills-profile"
                     aria-selected="false"
                   >
-                    Order List
-                    <span className="badge2">{orders ? orders.length : 0}</span>
+                   
+                      Order List
+                      <span className="badge2">
+                        {orders ? orders.length : 0}
+                      </span> 
+                    
                   </button>
                 </div>
               </div>

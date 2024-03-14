@@ -3,7 +3,9 @@ import { CART_ADD_ITEM, CART_SAVE_PAYMENT_METHOD, CART_SAVE_SHIPPING_ADDRESS } f
 
 // ADD TO CART
 export const addToCart = (id, qty) => async (dispatch, getState) => {
-    const { data } = await axios.get(`http://localhost:4000/api/products/${id}`);
+    const { data } = await axios.get(
+      `https://order-management-backend-95dg.onrender.com/api/products/${id}`
+    );
 
     dispatch({
         type:CART_ADD_ITEM,

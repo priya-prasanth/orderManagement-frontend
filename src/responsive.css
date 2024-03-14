@@ -1,4 +1,14 @@
+@media (max-width: 1237.98px) {
+ .pc-header {
+        display: block;
+    } 
+ .mobile-header {
+     display: none;
+ }
+}
+
 @media (max-width: 991.98px){
+   
     .display-none{
         display: none !important;
     }
@@ -16,6 +26,7 @@
         padding: 5px;
         font-size: 7px;
     }
+       
     .input-group{
         height: 30px;
     }
@@ -50,10 +61,10 @@
 @media (max-width:768px){
      .pc-header{
         display: none !important;
-    } 
-    .mobile-header{
+    }  
+     .mobile-header{
         display: block;
-    }
+    } 
     .cart-mobile-icon i{
         font-size: 13px;
         margin-left: 10px;
@@ -64,9 +75,9 @@
     .mobile-header img{
         width: 60px;
     }
-    .input-group{
+     .input-group{
         width: 100%;
-        margin-top: 5px;
+        margin-top: 5px; 
     }
     .search-button{
         width: 30%;

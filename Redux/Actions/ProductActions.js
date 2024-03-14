@@ -10,14 +10,13 @@ import {
   PRODUCT_DETAILS_SUCCESS,
 } from "../Constants/ProductContants.js";
 
-
 // PRODUCT LIST
 export const listProduct = () => async (dispatch) => {
   try {
     dispatch({ type: PRODUCT_LIST_REQUEST });
 
     const { data } = await axios.get(
-      "http://localhost:4000/api/products"
+      "https://order-management-backend-95dg.onrender.com/api/products"
     );
     dispatch({ type: PRODUCT_LIST_SUCCESS, payload: data });
   } catch (error) {
@@ -31,13 +30,14 @@ export const listProduct = () => async (dispatch) => {
   }
 };
 
-
 // SINGLE PRODUCT
 export const listProductDetails = (id) => async (dispatch) => {
   try {
     dispatch({ type: PRODUCT_DETAILS_REQUEST });
 
-    const { data } = await axios.get(`http://localhost:4000/api/products/${id}`);
+    const { data } = await axios.get(
+      `https://order-management-backend-95dg.onrender.com/api/products/${id}`
+    );
     dispatch({ type: PRODUCT_DETAILS_SUCCESS, payload: data });
   } catch (error) {
     dispatch({
@@ -49,4 +49,3 @@ export const listProductDetails = (id) => async (dispatch) => {
     });
   }
 };
-

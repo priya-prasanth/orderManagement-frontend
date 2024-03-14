@@ -33,7 +33,7 @@ const App = () => {
           <Route path="/payment" element={<PaymentScreen />} />
           <Route path="/placeorder" element={<PlaceOrderScreen />} />
           <Route path="/order/:id" element={<OrderScreen />} />
-        </Routes>
+              </Routes>
       </BrowserRouter>
     </Provider>
   );

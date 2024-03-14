@@ -7,10 +7,9 @@ import { useParams } from "react-router-dom";
 import { createBrowserHistory } from "history";
 import { useNavigate } from "react-router-dom";
 
-
 const CartScreen = () => {
   window.scrollTo(0, 0);
-   const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const { id } = useParams();
   const productId = id;
   let history = createBrowserHistory();
@@ -25,7 +24,6 @@ const CartScreen = () => {
   const { cartItems } = cart;
 
   const total = cartItems.reduce((a, i) => a + i.qty * i.price, 0).toFixed(2);
- 
 
   useEffect(() => {
     if (productId) {
@@ -36,9 +34,9 @@ const CartScreen = () => {
   const checkOutHandler = () => {
     navigate("/login?redirect=/shipping");
   };
-//
+  //
   const removeFromCartHandle = (id) => {
-    dispatch(removefromcart(id))
+    dispatch(removefromcart(id));
   };
 
   return (
@@ -69,7 +67,7 @@ const CartScreen = () => {
               </Link>
             </div>
             {/* cartitem */}
-            {cartItems.map((item,index) => (
+            {cartItems.map((item, index) => (
               <div className="cart-item row" key={index}>
                 <div
                   onClick={() => removeFromCartHandle(item.product)}
@@ -81,7 +79,9 @@ const CartScreen = () => {
                   <img src={item.image} alt={item.name} />
                 </div>
                 <div className="cart-text col-md-5 d-flex align-items-center">
-                  <Link to={`http://localhost:5173/products/${item.product}`}>
+                  <Link
+                    to={`https://shiny-kelpie-c61860.netlify.app/products/${item.product}`}
+                  >
                     <h4>{item.name}</h4>
                   </Link>
                 </div>
@@ -129,6 +129,5 @@ const CartScreen = () => {
     </>
   );
 };
-
 
 export default CartScreen;
