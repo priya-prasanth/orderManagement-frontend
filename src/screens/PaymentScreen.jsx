@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router';
 import Header from '../components/profileComponents/Header';
 import { useDispatch, useSelector } from 'react-redux';
-import { savePaymentMethod } from '../../Redux/Actions/cartActions';
+// import { savePaymentMethod } from '../../Redux/Actions/cartActions';
+import { savePaymentMethod } from '../Redux/Actions/cartActions.js';
 
 const PaymentScreen = () => {
     window.scrollTo(0, 0);

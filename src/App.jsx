@@ -15,7 +15,8 @@ import PaymentScreen from "./screens/PaymentScreen";
 import PlaceOrderScreen from "./screens/PlaceOrderScreen";
 import OrderScreen from "./screens/OrderScreen";
 import { Provider } from "react-redux";
-import { store } from "../Redux/store.js";
+// import { store } from "../Redux/store.js";
+import { store } from "./Redux/store.js";
 
 const App = () => {
   return (

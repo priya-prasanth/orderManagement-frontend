@@ -3,11 +3,12 @@ import Header from "../components/profileComponents/Header";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { getOrderDetails } from "../../Redux/Actions/OrderActions.js";
+// import { getOrderDetails } from "../../Redux/Actions/OrderActions.js";
 //import { PayPalButton } from "react-paypal-button-v2";
 import Loading from "../components/LoadingError/Loading.jsx";
 import Message from "../components/LoadingError/Error.jsx";
 import moment from "moment";
+import { getOrderDetails } from "../Redux/Actions/OrderActions.js";
 
 const OrderScreen = () => {
   window.scrollTo(0, 0);
@@ -17,7 +18,6 @@ const OrderScreen = () => {
   const dispatch = useDispatch();
   const orderDetails = useSelector((state) => state.orderDetails);
   const order = useSelector((state) => state.orderCreate.order);
-  
 
   // console.log(order);
   const { loading, error } = orderDetails;

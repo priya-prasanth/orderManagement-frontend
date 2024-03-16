@@ -4,12 +4,13 @@ import Header from "../components/profileComponents/Header";
 import Rating from "./../components/homeComponents/Rating";
 import Message from "../components/LoadingError/Error";
 import { useDispatch, useSelector } from "react-redux";
-import { listProductDetails } from "../../Redux/Actions/ProductActions.js";
+// import { listProductDetails } from "../../Redux/Actions/ProductActions.js";
 import Loading from "../components/LoadingError/Loading.jsx";
 // import Message from "../LoadingError/Error.jsx";
 // import { useHistory } from "react-router-dom";
 import { createBrowserHistory } from "history";
 import { useNavigate } from "react-router-dom";
+import { listProductDetails } from "../Redux/Actions/ProductActions.js";
 
 const SingleProduct = () => {
   const [qty, setQty] = useState(1);
@@ -32,7 +33,7 @@ const SingleProduct = () => {
     e.preventDefault();
     navigate(`/cart/${productId}?qty?=${qty}`);
   };
-  
+
   return (
     <>
       <Header />

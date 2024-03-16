@@ -3,7 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Dropdown from "react-bootstrap/Dropdown";
-import { logout } from "../../../Redux/Actions/userActions";
+// import { logout } from "../../../Redux/Actions/userActions";
+import { logout } from "../../Redux/Actions/userActions.js";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -155,7 +156,7 @@ const Header = () => {
                       <Dropdown.Toggle variant="success" id="dropdown-basic">
                         Hi, {userInfo.name}
                       </Dropdown.Toggle>
-                    <Dropdown.Menu>
+                      <Dropdown.Menu>
                         <Dropdown.Item href="/profile">Profile</Dropdown.Item>
                         <Dropdown.Item href="/#" onClick={logoutHandler}>
                           Log out

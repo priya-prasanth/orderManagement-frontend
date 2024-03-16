@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import Toast from '../LoadingError/Toast.jsx';
-import Message from '../LoadingError/Error';
-import Loading from '../LoadingError/Loading';
-import { toast } from 'react-toastify';
-import { updateUserProfile } from '../../../Redux/Actions/userActions.js';
-import { useParams } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import Toast from "../LoadingError/Toast.jsx";
+import Message from "../LoadingError/Error";
+import Loading from "../LoadingError/Loading";
+import { toast } from "react-toastify";
+// import { updateUserProfile } from '../../../Redux/Actions/userActions.js';
+import { useParams } from "react-router-dom";
+import { updateUserProfile } from "../../Redux/Actions/userActions.js";
 
 const ProfileTabs = () => {
   const [name, setName] = useState("");
@@ -15,20 +16,20 @@ const ProfileTabs = () => {
   const toastId = React.useRef(null);
 
   const Toastobjects = {
-    pauseOnFocusLoss:false,
+    pauseOnFocusLoss: false,
     draggable: false,
     pauseOnHover: false,
-    autoclose:2000
-  }
+    autoclose: 2000,
+  };
 
   const dispatch = useDispatch();
   const { id } = useParams();
 
   const userDetails = useSelector((state) => state.userDetails);
   const { loading, error, user } = userDetails;
-  
-   const userUpdateProfile = useSelector((state) => state.userUpdateProfile);
-   const { loading:updateLoading} = userUpdateProfile;
+
+  const userUpdateProfile = useSelector((state) => state.userUpdateProfile);
+  const { loading: updateLoading } = userUpdateProfile;
 
   useEffect(() => {
     if (user) {
@@ -42,75 +43,74 @@ const ProfileTabs = () => {
     //password match
     if (password !== confirmPassword) {
       if (!toast.isActive(toastId.current)) {
-      toastId.current = toast.error("Password does not match", Toastobjects);
-         }
-    } else {    
-  dispatch(updateUserProfile({ id: user._id, name, email, password }))
+        toastId.current = toast.error("Password does not match", Toastobjects);
+      }
+    } else {
+      dispatch(updateUserProfile({ id: user._id, name, email, password }));
       if (!toast.isActive(toastId.current)) {
         toastId.current = toast.success("Profile Updated", Toastobjects);
       }
     }
   };
-  
 
-    return (
-      <>
-        <Toast />
-        {error && <Message variant="alert-danger">{error}</Message>}
-        {loading && <Loading />}
-        {updateLoading && <Loading />}
-        
-        <form className="row form-container" onSubmit={submitHandler}>
-          <div className="col-md-6">
-            <div className="form">
-              <label for="account-fn">UserName</label>
-              <input
-                className="form-control"
-                type="text"
-                required
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-              />
-            </div>
+  return (
+    <>
+      <Toast />
+      {error && <Message variant="alert-danger">{error}</Message>}
+      {loading && <Loading />}
+      {updateLoading && <Loading />}
+
+      <form className="row form-container" onSubmit={submitHandler}>
+        <div className="col-md-6">
+          <div className="form">
+            <label for="account-fn">UserName</label>
+            <input
+              className="form-control"
+              type="text"
+              required
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
           </div>
-          <div className="col-md-6">
-            <div className="form">
-              <label for="account-email">Email Address</label>
-              <input
-                className="form-control"
-                type="email"
-                value={email}
-                required
-                onChange={(e) => setEmail(e.target.value)}
-              />
-            </div>
+        </div>
+        <div className="col-md-6">
+          <div className="form">
+            <label for="account-email">Email Address</label>
+            <input
+              className="form-control"
+              type="email"
+              value={email}
+              required
+              onChange={(e) => setEmail(e.target.value)}
+            />
           </div>
-          <div className="col-md-6">
-            <div className="form">
-              <label for="account-pass">New Password</label>
-              <input
-                className="form-control"
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </div>
+        </div>
+        <div className="col-md-6">
+          <div className="form">
+            <label for="account-pass">New Password</label>
+            <input
+              className="form-control"
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
           </div>
-          <div className="col-md-6">
-            <div className="form">
-              <label for="account-confirm-pass">Confirm Password</label>
-              <input
-                className="form-control"
-                type="password"
-                value={confirmPassword}
-                onChange={(e) => setConfirmPassword(e.target.value)}
-              />
-            </div>
+        </div>
+        <div className="col-md-6">
+          <div className="form">
+            <label for="account-confirm-pass">Confirm Password</label>
+            <input
+              className="form-control"
+              type="password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+            />
           </div>
-          <button type="submit">Update Profile</button>
-        </form>
-      </>
-    );
+        </div>
+        <button type="submit">Update Profile</button>
+      </form>
+    </>
+  );
 };
 
 export default ProfileTabs;

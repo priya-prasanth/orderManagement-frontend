@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom';
 import Header from '../components/profileComponents/Header';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { register } from '../../Redux/Actions/userActions';
-import Message from '../components/LoadingError/Error';
-import Loading from '../components/LoadingError/Loading';
+// import { register } from '../../Redux/Actions/userActions';
+import Message from '../components/LoadingError/Error.jsx';
+import Loading from '../components/LoadingError/Loading.jsx';
+import { register } from '../Redux/Actions/userActions.js';
 
 const Register = () => {
     window.scrollTo(0, 0);

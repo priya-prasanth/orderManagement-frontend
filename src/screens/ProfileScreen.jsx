@@ -1,11 +1,14 @@
 import React, { useEffect } from "react";
 import Header from "../components/profileComponents/Header.jsx";
 import { useDispatch, useSelector } from "react-redux";
-import { getUserDetails } from "../../Redux/Actions/userActions.js";
+// import { getUserDetails } from "../../Redux/Actions/userActions.js";
 import Orders from "../components/profileComponents/Orders.jsx";
 import ProfileTabs from "../components/profileComponents/ProfileTabs.jsx";
-import { listMyOrders } from "../../Redux/Actions/OrderActions.js";
-import { Link } from "react-router-dom";
+// import { listMyOrders } from "../../Redux/Actions/OrderActions.js";
+import { listMyOrders } from "../Redux/Actions/OrderActions.js";
+import { getUserDetails } from "../Redux/Actions/userActions.js";
+
+
 
 const ProfileScreen = () => {
   window.scrollTo(0, 0);
@@ -17,7 +20,7 @@ const ProfileScreen = () => {
   // console.log(userInfo);
   const orderListMy = useSelector((state) => state.orderListMy);
   const { loading, error, orders } = orderListMy;
-  // cart?.shippingAddess;
+
   useEffect(() => {
     dispatch(listMyOrders());
     dispatch(getUserDetails("profile"));
@@ -75,12 +78,8 @@ const ProfileScreen = () => {
                     aria-controls="v-pills-profile"
                     aria-selected="false"
                   >
-                   
-                      Order List
-                      <span className="badge2">
-                        {orders ? orders.length : 0}
-                      </span> 
-                    
+                    Order List
+                    <span className="badge2">{orders ? orders.length : 0}</span>
                   </button>
                 </div>
               </div>

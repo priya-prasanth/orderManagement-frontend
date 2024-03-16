@@ -4,9 +4,10 @@ import Rating from "./Rating";
 import Pagination from "./pagination";
 import products from "../data/Products";
 import { useDispatch, useSelector } from "react-redux";
-import { listProduct } from "../../../Redux/Actions/ProductActions.js";
+// import { listProduct } from "../../../Redux/Actions/ProductActions.js";
 import Loading from "../LoadingError/Loading.jsx";
 import Message from "../LoadingError/Error.jsx";
+import { listProduct } from "../../Redux/Actions/ProductActions.js";;
 
 const ShopSection = () => {
   const dispatch = useDispatch();

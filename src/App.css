@@ -225,12 +225,27 @@ margin-top: 2px;
 /* .rating i{
 
 } */
+.pagination {
+margin-top:80px;
+}
 
+.subscribe-section{
+  margin-top:100px;
+}
 
+.subscribe-head{
+  text-align: center;
+}
 
+.box-info{
+  text-align: center;
+}
 
-
-
+.info-image{
+  align-items: center;
+  text-align: center;
+  margin-left: 140px;
+}
 
 
 

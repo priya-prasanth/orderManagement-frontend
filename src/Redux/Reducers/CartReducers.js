@@ -6,10 +6,11 @@ import {
   CART_SAVE_SHIPPING_ADDRESS,
 } from "../Constants/CartConstants.js";
 
+
 export const cartReducer = (
   state = { cartItems: [], shippingAddress: {} },
   action
-  ) => {
+) => {
   switch (action.type) {
     case CART_ADD_ITEM:
       const item = action.payload;
@@ -45,7 +46,7 @@ export const cartReducer = (
     case CART_CLEAR_ITEMS:
       return {
         ...state,
-        cartItems: []
+        cartItems: [],
       };
     default:
       return state;

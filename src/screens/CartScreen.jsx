@@ -2,10 +2,12 @@ import React, { useEffect } from "react";
 import Header from "../components/profileComponents/Header";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart, removefromcart } from "./../../Redux/Actions/cartActions";
+// import { addToCart, removefromcart } from "./../../Redux/Actions/cartActions";
 import { useParams } from "react-router-dom";
 import { createBrowserHistory } from "history";
 import { useNavigate } from "react-router-dom";
+import { addToCart, removefromcart } from "../Redux/Actions/cartActions.js";
+
 
 const CartScreen = () => {
   window.scrollTo(0, 0);
